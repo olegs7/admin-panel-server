@@ -11,7 +11,7 @@ const app = express()
 
 app.use((req,res,next)=>{
 	res.header('Access-Control-Allow-Origin','*')
-	res.header('Access-Control-Allow-Methods','PUT,DELETE')
+	res.header('Access-Control-Allow-Methods','PATCH,PUT,DELETE')
 	res.header('Access-Control-Allow-Headers','Content-Type,Accept')
 	next()
 })
@@ -25,9 +25,10 @@ app.use(orderRouter)
 
 async function appStart(){
 	try {
-		await mongoose.connect(process.env.DB_CONN,{ useNewUrlParser:true, useUnifiedTopology:true })
+		await app.listen(PORT,() => console.log('SERVER START ' + PORT))
+					mongoose.connect(process.env.DB_CONN,{ useNewUrlParser:true, useUnifiedTopology:true })
 					 .then((res) => console.log('connected to DB'))
-				app.listen(PORT,() => console.log('SERVER START ' + PORT))
+				
 	} catch(e) {
 		console.log(e)
 	}

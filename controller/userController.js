@@ -28,7 +28,6 @@ class UserController {
 	async create(req,res){
 		try {
 			const {name,email,phone,product} = req.body
-			console.log(product)
 				if(req.files === null){
 					const newUser = await user.create({name,email,phone})
 						res.json(newUser)
