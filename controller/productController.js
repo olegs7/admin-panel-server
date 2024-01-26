@@ -43,12 +43,12 @@ class ProductController {
 	async update(req,res){
 		try {
 			const id = req.params.id
-			const {name,price,description} = req.body
+			const {file,name,price,description} = req.body
 				if(!id){
 					res.status(400).json({message:'no Id'})
 				}
 				if(req.files === null){				
-					const update = await product.findByIdAndUpdate(id,{name,price,description})
+					const update = await product.findByIdAndUpdate(id,{file,name,price,description})
 						res.json(update)
 				} else {
 					const fileName = await fileService.saveProductFile(req.files.file)

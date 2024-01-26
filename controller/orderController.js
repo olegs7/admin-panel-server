@@ -2,12 +2,6 @@ import user from '../models/users.js'
 import product from '../models/products.js'
 
 class OrderController{
-	async getOne(req,res){
-		// const userId = req.query.user
-		const userId = req.params.id
-		const findUser = await user.findOne({_id:userId},{products:1})
-	}
-
 	async create(req,res){
 		const userId = req.body.userId
 		const productId = req.params.id

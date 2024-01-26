@@ -44,12 +44,12 @@ class UserController {
 	async update(req,res){
 		try {
 			const id = req.params.id
-			const {name,email,phone} = req.body
+			const {file,name,email,phone} = req.body
 				if(!id){
 					res.status(400).json({message:'no Id'})
 				}
 				if(req.files === null){				
-					const update = await user.findByIdAndUpdate(id,{name,email,phone})
+					const update = await user.findByIdAndUpdate(id,{file,name,email,phone})
 						res.json(update)
 				} else {
 					const fileName = await fileService.saveUserFile(req.files.file)
