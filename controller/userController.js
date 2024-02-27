@@ -3,6 +3,13 @@ import product from '../models/products.js'
 import fileService from '../fileService.js'
 
 class UserController {
+	 login(req,res){
+	 	const { email,password } = req.body
+			if(email && password){
+				res.json()
+			}
+	}
+
 	async getAll(req,res){
 		try {
 			const users = await user.find()

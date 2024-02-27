@@ -3,6 +3,7 @@ import userController from '../controller/userController.js'
 
 const router = new Router()
 
+router.post('/login',userController.login)
 router.get('/',userController.getAll)
 router.get('/users',userController.getAll)
 router.get('/users/:id',userController.getOne)
