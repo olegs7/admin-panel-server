@@ -18,6 +18,8 @@ npm install
 PORT = 3000  
 DB_CONN = 'your connection string to mongodb your application code'
 
+## Create folders img-user and img-product
+
 ## To start the express server, run the following
 
 ```sh
